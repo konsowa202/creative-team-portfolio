@@ -90,9 +90,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 📞 Contact
 
 For any questions or suggestions, please reach out to:
-- Email: [your-email@example.com]
-- LinkedIn: [your-linkedin-profile]
+- Email: [mahmoudkonsowa678@gmail.com]
 
 ---
 
-Made with ❤️ by [Your Name/Team Name] 
+Made with ❤️ by [Mahmoud konsowa- Gahbaz Team] 
