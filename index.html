@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Team Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Creative<span>Team</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#team">Team</a></li>
+        </ul>
+        <button id="darkModeToggle" class="dark-toggle" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="animate-text">Welcome to Our Creative World</h1>
+            <p class="animate-text-delay">Where Innovation Meets Excellence</p>
+            <a href="#about" class="cta-button">Explore More</a>
+        </div>
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>We are a team of passionate developers and designers, creating amazing digital experiences.</p>
+            </div>
+            <div class="skills">
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>UI/UX Design</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive Design</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Our Projects</h2>
+        <div class="project-grid">
+            <div class="project-card" onclick="openProjectPopup(1)">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80');"></div>
+                <h3>Project One</h3>
+                <p>Innovative web solutions</p>
+            </div>
+            <div class="project-card" onclick="openProjectPopup(2)">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');"></div>
+                <h3>Project Two</h3>
+                <p>Creative designs</p>
+            </div>
+            <div class="project-card" onclick="openProjectPopup(3)">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80');"></div>
+                <h3>Project Three</h3>
+                <p>Mobile applications</p>
+            </div>
+        </div>
+        <!-- Project Popup -->
+        <div id="projectPopup" class="project-popup" style="display:none;">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closeProjectPopup()">&times;</span>
+                <img id="popupImg" src="" alt="Project Image" />
+                <h3 id="popupTitle"></h3>
+                <p id="popupDesc"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <h2>Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-image" style="background-image: url('Mahmoud Hassan Sayed Konsowa.jpg');"></div>
+                <h3>Mahmoud Hassan Sayed Konsowa</h3>
+                <p>ID: 20210010</p>
+            </div>
+            <div class="team-member">
+                <div class="member-image" style="background-image: url('Kareem Adel.jpg');"></div>
+                <h3>Kareem Adel Mohamed Riad</h3>
+                <p>ID: 20210111</p>
+            </div>
+            <div class="team-member">
+                <div class="member-image" style="background-image: url('Mahamed Elshazly.jpg');"></div>
+                <h3>Mohamed Abdallah Hamed andelaziz Elshazly</h3>
+                <p>ID: 20210016</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Creative Team. All rights reserved.</p>
+    </footer>
+    <script>
+        // Dark Mode Logic
+        const darkToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        function setDarkMode(on) {
+            if(on) {
+                body.classList.add('dark');
+                localStorage.setItem('darkMode', 'on');
+                darkToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                body.classList.remove('dark');
+                localStorage.setItem('darkMode', 'off');
+                darkToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+        darkToggle.onclick = () => setDarkMode(!body.classList.contains('dark'));
+        if(localStorage.getItem('darkMode') === 'on') setDarkMode(true);
+
+        // Shapes Run Animation on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            const shapes = document.querySelectorAll('.floating-shapes .shape');
+            shapes.forEach((shape) => shape.classList.add('animate-run'));
+            setTimeout(() => {
+                shapes.forEach((shape) => shape.classList.remove('animate-run'));
+            }, 2000);
+        });
+
+        const projectData = [
+            {
+                img: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
+                title: 'Project One',
+                desc: 'A modern web solution that leverages the latest technologies to deliver seamless user experiences and robust performance. Features include responsive design, fast loading, and interactive UI.'
+            },
+            {
+                img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+                title: 'Project Two',
+                desc: 'A creative design project focused on branding and visual identity. Includes logo design, color schemes, and a full set of brand guidelines for digital and print.'
+            },
+            {
+                img: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80',
+                title: 'Project Three',
+                desc: 'A mobile application project with a focus on usability and performance. Features include push notifications, offline mode, and a beautiful, intuitive interface.'
+            }
+        ];
+        function openProjectPopup(index) {
+            document.getElementById('popupImg').src = projectData[index-1].img;
+            document.getElementById('popupTitle').innerText = projectData[index-1].title;
+            document.getElementById('popupDesc').innerText = projectData[index-1].desc;
+            document.getElementById('projectPopup').style.display = 'flex';
+        }
+        function closeProjectPopup() {
+            document.getElementById('projectPopup').style.display = 'none';
+        }
+    </script>
+</body>
+</html> 
