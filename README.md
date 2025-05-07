@@ -83,9 +83,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👥 Team
 
-- [Your Name] - Lead Developer
-- [Team Member 2] - Designer
-- [Team Member 3] - Developer
+- [Mahmoud konsowa] - Lead Developer
+- [Kareem Adel] - Designer
+- [Mohamed El-shazly] - Developer
 
 ## 📞 Contact
 
